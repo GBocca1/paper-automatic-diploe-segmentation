@@ -3,10 +3,10 @@ import nibabel as nib
 import numpy as np
 import subprocess
 
-mricrogl_path = r"path\to\MRIcroGL.exe"
+mricrogl_path = r"path\to\MRIcroGL.exe" ## Change with your MRIcroGL folder path
 mricrogl_script_path = "0c_nifti_to_png.py"
 
-ct_nifti_path = r"path\to\gamma_corrected_neurocranium_ct_image.nii"
+ct_nifti_path = r"test\gamma_corrected_neurocranium_ct_image.nii"
 nifti_img = nib.load(ct_nifti_path)
 
 # Get the updated affine matrix after reorientation
@@ -26,7 +26,7 @@ slice_spacing_x = np.linalg.norm(affine[0, :3])    # Distance between slices
 
 print(f"Start X: {start_x_mm} mm, End X: {end_x_mm} mm, Step: {slice_spacing_x} mm")
 
-png_path = r"path\to\png_folder_sagittal_plane"
+png_path = r"test\png_folder_sagittal_plane"
 
 # 🔹 1️⃣ Create the argument string (space-separated values)
 args = "{} {} {} {} {}".format(
